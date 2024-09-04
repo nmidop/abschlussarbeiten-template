@@ -224,11 +224,13 @@
 \NewDocumentCommand{\matriculationnumber}{m}{\newcommand{\matnumber}{#1}}
 
 \ifbool{bachelor}{%
-    \newcommand{\ttype}{Bachelor Thesis}%
-    \providecaptionname{english,british,american}{\ttype}{Bachelor Thesis}%
-    \providecaptionname{ngerman,german,austrian,naustrian}{\ttype}{Bachelorarbeit}%
+    \newcommand{\ttype}{Bachelor Thesis}
+    \newcommand{\tdetype}{Bachelorarbeit}
+    \providecaptionname{english,british,american}{\ttype}{Bachelor Thesis}
+    \providecaptionname{ngerman,german,austrian,naustrian}{\ttype}{Bachelorarbeit}
 }{%
     \newcommand{\ttype}{Master Thesis}
+    \newcommand{\tdetype}{Masterarbeit}
     \providecaptionname{english,british,american}{\ttype}{Master Thesis}
     \providecaptionname{ngerman,german,austrian,naustrian}{\ttype}{Masterarbeit}
 }
@@ -449,19 +451,13 @@ KOMA-script documentation for details.}]{fancyhdr}
 \providecaptionname{american,australian,british,canadian,english,newzealand,UKenglish,USenglish}{\authorshipname}{Declaration of Authorship} % Declaration of Authorship text for English countries
 \providecaptionname{german,ngerman,austrian,naustrian}{\authorshipname}{Eidesstattliche Erkl\"arung} % Declaration of Authorship text for Germanic countries
 
-\ifbool{consistentlayout}{
-	\DeclareDocumentEnvironment{declaration}{}{
-		\addchap*{\authorshipname}
-		}{}%
-}{
-	\DeclareDocumentEnvironment{declaration}{}{
-		\checktoopen
-		\tttypeout{\authorshipname}
-		\thispagestyle{plain}
-		\null\vfil
-		{\noindent\huge\bfseries\authorshipname\par\vspace{10pt}}
-	}{}
-}
+\DeclareDocumentEnvironment{declaration}{}{
+    \checktoopen
+    \tttypeout{\authorshipname}
+    \thispagestyle{empty}
+    \null\vfil
+    % {\noindent\huge\bfseries\authorshipname\par\vspace{10pt}}
+}{}
 
 %----------------------------------------------------------------------------------------
 %	DEDICATION PAGE DESIGN
