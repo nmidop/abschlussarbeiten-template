@@ -218,7 +218,6 @@
 \NewDocumentCommand{\firstexaminer}{m}{\newcommand{\fxname}{#1}}
 \NewDocumentCommand{\secondexaminer}{m}{\newcommand{\sxname}{#1}}
 \NewDocumentCommand{\supervisor}{m}{\newcommand{\supname}{#1}}
-\NewDocumentCommand{\degree}{m}{\newcommand{\degreename}{#1}}
 \NewDocumentCommand{\university}{m}{\newcommand{\univname}{#1}}
 \NewDocumentCommand{\department}{m}{\newcommand{\deptname}{#1}}
 \NewDocumentCommand{\handindate}{m}{\newcommand{\hdate}{#1}}
