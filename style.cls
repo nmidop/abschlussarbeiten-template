@@ -40,6 +40,7 @@
 \booltrue{hyperrefsupport}
 \newbool{headsepline}
 \newbool{consistentlayout}
+\newbool{bachelor}
 
 \DeclareOption{nohyperref}{\boolfalse{hyperrefsupport}}
 \DeclareOption{nolistspacing}{\booltrue{nolistspace}}
@@ -50,6 +51,7 @@
 \DeclareOption{headsepline}{\booltrue{headsepline}}
 \DeclareOption{consistentlayout}{\booltrue{consistentlayout}}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{\baseclass}}
+\DeclareOption{bachelor}{\booltrue{bachelor}}
 
 \ProcessOptions\relax
 
@@ -213,16 +215,24 @@
  \def\ttitle{#2}%
 }
 \DeclareDocumentCommand{\author}{m}{\newcommand{\authorname}{#1}\renewcommand{\@author}{#1}}
+\NewDocumentCommand{\firstexaminer}{m}{\newcommand{\fxname}{#1}}
+\NewDocumentCommand{\secondexaminer}{m}{\newcommand{\sxname}{#1}}
 \NewDocumentCommand{\supervisor}{m}{\newcommand{\supname}{#1}}
-\NewDocumentCommand{\examiner}{m}{\newcommand{\examname}{#1}}
 \NewDocumentCommand{\degree}{m}{\newcommand{\degreename}{#1}}
-\NewDocumentCommand{\addresses}{m}{\newcommand{\addressname}{#1}}
 \NewDocumentCommand{\university}{m}{\newcommand{\univname}{#1}}
 \NewDocumentCommand{\department}{m}{\newcommand{\deptname}{#1}}
-\NewDocumentCommand{\group}{m}{\newcommand{\groupname}{#1}}
-\NewDocumentCommand{\faculty}{m}{\newcommand{\facname}{#1}}
-\NewDocumentCommand{\subject}{m}{\newcommand{\subjectname}{#1}}
-\NewDocumentCommand{\keywords}{m}{\newcommand{\keywordnames}{#1}}
+\NewDocumentCommand{\handindate}{m}{\newcommand{\hdate}{#1}}
+\NewDocumentCommand{\matriculationnumber}{m}{\newcommand{\matnumber}{#1}}
+
+\ifbool{bachelor}{%
+    \newcommand{\ttype}{Bachelor Thesis}%
+    \providecaptionname{english,british,american}{\ttype}{Bachelor Thesis}%
+    \providecaptionname{ngerman,german,austrian,naustrian}{\ttype}{Bachelorarbeit}%
+}{%
+    \newcommand{\ttype}{Master Thesis}
+    \providecaptionname{english,british,american}{\ttype}{Master Thesis}
+    \providecaptionname{ngerman,german,austrian,naustrian}{\ttype}{Masterarbeit}
+}
 
 \newcommand{\checktoopen}{% New command to move content to the next page which prints to the next odd page if twosided mode is active  
 	\if@openright\cleardoublepage\else\clearpage\fi

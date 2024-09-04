@@ -1,0 +1,55 @@
+\documentclass[
+11pt, % The default document font size, options: 10pt, 11pt, 12pt
+%oneside, % Two side (alternating margins) for binding by default, uncomment to switch to one side
+english, % ngerman for German
+singlespacing, % Single line spacing, alternatives: onehalfspacing or doublespacing
+%draft, % Uncomment to enable draft mode (no pictures, no links, overfull hboxes indicated)
+%nolistspacing, % If the document is onehalfspacing or doublespacing, uncomment this to set spacing in lists to single
+%liststotoc, % Uncomment to add the list of figures/tables/etc to the table of contents
+%toctotoc, % Uncomment to add the main table of contents to the table of contents
+%parskip, % Uncomment to add space between paragraphs
+%nohyperref, % Uncomment to not load the hyperref package
+headsepline, % Uncomment to get a line under the header
+%chapterinoneline, % Uncomment to place the chapter title next to the number on one line
+consistentlayout, % Uncomment to change the layout of the declaration, abstract and acknowledgements pages to match the default layout
+bachelor, % Comment-out if you are writing a Master Thesis
+]{style} % The class file specifying the document structure
+
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+\usepackage{mathpazo} % Use the Palatino font by default
+
+\usepackage[backend=bibtex,style=authoryear,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
+
+\addbibresource{lit.bib} % The filename of the bibliography
+
+\usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
+
+% margins
+\geometry{
+	paper=a4paper, % Change to letterpaper for US letter
+	inner=2.5cm, % Inner margin
+	outer=3.8cm, % Outer margin
+	bindingoffset=.5cm, % Binding offset
+	top=1.5cm, % Top margin
+	bottom=1.5cm, % Bottom margin
+	%showframe, % Uncomment to show how the type block is set on the page
+}
+
+\thesistitle{Thesis Title} % Your thesis title, this is used in the title, print it elsewhere with \ttitle
+\firstexaminer{Prof. Dr. Stefan Brunthaler} % Your first examiner's name, this is used in the title page, print it elsewhere with \fxname
+\secondexaminer{Prof. Dr. Max Mustermann} % Your second examiner's name, this is used in the title page, print it elsewhere with \sxname
+\supervisor{M.Sc. Max Mustermann} % Your supervisor's name, this is used in the title page, print it elsewhere with \supname
+\degree{Doctor of Philosophy} % Your degree name, this is used in the title page, print it elsewhere with \degreename
+\author{John Smith} % Your name, this is used in the title page, print it elsewhere with \authorname
+\matriculationnumber{1234567} % Your Matrikelnummer, this is used in the title page, print it elsewhere with \matnumber
+
+\handindate{01.01.1900} % Your Abgabedatum (used in the title page and on the info sheet, print it elsewhere with \hdate)
+
+\university{Universit\"at der Bundeswehr M\"unchen} % Your university's name, this is used in the title page, print it elsewhere with \univname
+\department{Fakult\"at f\"ur Informatik} % Your department's name, this is used in the title page, print it elsewhere with \deptname
+
+\AtBeginDocument{
+\hypersetup{pdftitle=\ttitle} % Set the PDF's title to your title
+\hypersetup{pdfauthor=\authorname} % Set the PDF's author to your name
+}
