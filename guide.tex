@@ -221,7 +221,8 @@ Tables are an important way of displaying your results, below is an example tabl
 \end{tabular}
 \end{table}
 
-You can reference tables with \verb|\ref{<label>}| where the label is defined within the table environment. See \file{Chapter1.tex} for an example of the label and citation (e.g. Table~\ref{tab:treatments}).
+You can reference tables with \verb|\ref{<label>}| where the label is defined within the table environment.
+Altenternatively, you can use \verb|\Cref{<label>}|, which will also include the object's type: \Cref{tab:treatments}.
 
 \subsection{Figures}
 
@@ -247,7 +248,7 @@ Also look in the source file. Putting this code into the source file produces th
 
 Sometimes figures don't always appear where you write them in the source. The placement depends on how much space there is on the page for the figure. Sometimes there is not enough room to fit a figure directly where it should go (in relation to the text) and so \LaTeX{} puts it at the top of the next page. Positioning figures is the job of \LaTeX{} and so you should only worry about making them look good!
 
-Figures usually should have captions just in case you need to refer to them (such as in Figure~\ref{fig:Electron}). The \verb|\caption| command contains two parts, the first part, inside the square brackets is the title that will appear in the \emph{List of Figures}, and so should be short. The second part in the curly brackets should contain the longer and more descriptive caption text.
+Figures usually should have captions just in case you need to refer to them (such as in \Cref{fig:Electron}). The \verb|\caption| command contains two parts, the first part, inside the square brackets is the title that will appear in the \emph{List of Figures}, and so should be short. The second part in the curly brackets should contain the longer and more descriptive caption text.
 
 The \verb|\decoRule| command is optional and simply puts an aesthetic horizontal line below the image. If you do this for one image, do it for all of them.
 
@@ -292,10 +293,10 @@ The Table of Contents should only list the sections to three (3) levels. A \verb
 %----------------------------------------------------------------------------------------
 
 \section{Source Code Listings}
-You can add source code snippets, like below.
+You can add source code snippets, like on \Cref{lst:c}, \Cref{lst:py}, and \Cref{lst:sh}.
 The documentation for this package is at \url{https://mirror.physik.tu-berlin.de/pub/CTAN/macros/latex/contrib/listings/listings.pdf}.
 
-\begin{lstlisting}[language=C, caption={C code snippet}]
+\begin{lstlisting}[language=C, caption={C code snippet}, label=lst:c]
 int main(int argc, char **argv) {
     int x = 0;
     scanf("%d", &x);
@@ -305,7 +306,7 @@ int main(int argc, char **argv) {
 }
 \end{lstlisting}
 
-\begin{lstlisting}[language=Python, caption={Python code snippet}]
+\begin{lstlisting}[language=Python, caption={Python code snippet}, label=lst:py]
 class A:
     def __init__(x):
         self.x = x
@@ -315,7 +316,7 @@ if __name__ == "__main__":
     print("Hello World!")
 \end{lstlisting}
 
-\begin{lstlisting}[language=sh, caption={Code snippet in POSIX shell}]
+\begin{lstlisting}[language=sh, caption={Code snippet in POSIX shell}, label=lst:sh]
 #!/bin/sh
 echo 'starting'
 find . -type f -name '*.bin'
