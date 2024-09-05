@@ -25,6 +25,29 @@ bachelor, % Comment-out if you are writing a Master Thesis
 
 \usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
 
+\usepackage{listings} % Required for source code listings
+\usepackage{xcolor} % For coloring, e.g., in source code listings
+
+\lstset{%
+    basicstyle=\small\ttfamily,
+    numbers=left,
+    numberstyle=\tiny, 
+    % stepnumber=2, 
+    numbersep=5pt,
+    breaklines=true,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{red!50!brown},
+    frame=single,
+    framesep=\fboxsep,
+    framerule=\fboxrule,
+    rulecolor=\color{black},
+    xleftmargin=2em,
+    xrightmargin=\dimexpr\fboxsep+\fboxrule,
+    framexleftmargin=1.5em,
+    captionpos=b
+}
+
 % margins
 \geometry{
 	paper=a4paper, % Change to letterpaper for US letter

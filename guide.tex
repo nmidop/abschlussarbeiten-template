@@ -291,6 +291,39 @@ The Table of Contents should only list the sections to three (3) levels. A \verb
 
 %----------------------------------------------------------------------------------------
 
+\section{Source Code Listings}
+You can add source code snippets, like so:
+
+% Documentation: https://mirror.physik.tu-berlin.de/pub/CTAN/macros/latex/contrib/listings/listings.pdf
+
+\begin{lstlisting}[language=C, caption={C code snippet}]
+int main(int argc, char **argv) {
+    int x = 0;
+    scanf("%d", &x);
+    printf("%d\n", x);
+    /* some comment */
+    return 0;
+}
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python, caption={Python code snippet}]
+class A:
+    def __init__(x):
+        self.x = x
+
+if __name__ == "__main__":
+    # another comment
+    print("Hello World!")
+\end{lstlisting}
+
+\begin{lstlisting}[language=sh, caption={Code snippet in POSIX shell}]
+#!/bin/sh
+echo 'starting'
+find . -type f -name '*.bin'
+echo 'finished'
+exit 0
+\end{lstlisting}
+
 \section{In Closing}
 
 You have reached the end of this mini-guide. You can now rename or overwrite this pdf file and begin writing your own \file{Chapter1.tex} and the rest of your thesis. The easy work of setting up the structure and framework has been taken care of for you. It's now your job to fill it out!
