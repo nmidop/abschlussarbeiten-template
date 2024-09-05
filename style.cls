@@ -223,6 +223,10 @@
 \NewDocumentCommand{\handindate}{m}{\newcommand{\hdate}{#1}}
 \NewDocumentCommand{\matriculationnumber}{m}{\newcommand{\matnumber}{#1}}
 
+\newcommand{\acrolisting}{List of Acronyms}
+\providecaptionname{english,british,american}{\acrolisting}{List of Acronyms}
+\providecaptionname{ngerman,german,austrian,naustrian}{\acrolisting}{Abk\"urzungsverzeichnis}
+
 \ifbool{bachelor}{%
     \newcommand{\ttype}{Bachelor Thesis}
     \newcommand{\tdetype}{Bachelorarbeit}
