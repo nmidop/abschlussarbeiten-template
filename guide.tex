@@ -281,19 +281,27 @@ All equations you write (which are not in the middle of paragraph text) are auto
 \begin{verbatim}
 \[ a^{2}=4 \]
 \end{verbatim}
+which will render to
+\[ a^{2} = 4 \]
 
 %----------------------------------------------------------------------------------------
 
 \section{Sectioning and Subsectioning}
 
-You should break your thesis up into nice, bite-sized sections and subsections. \LaTeX{} automatically builds a table of Contents by looking at all the \verb|\chapter{}|, \verb|\section{}|  and \verb|\subsection{}| commands you write in the source.
+You should break your thesis up into nice, bite-sized sections and subsections.
+\LaTeX{} automatically builds a Table of Contents by looking at all the \verb|\chapter{}|, \verb|\section{}|  and \verb|\subsection{}| commands you write in the source.
 
-The Table of Contents should only list the sections to three (3) levels. A \verb|chapter{}| is level zero (0). A \verb|\section{}| is level one (1) and so a \verb|\subsection{}| is level two (2). In your thesis it is likely that you will even use a \verb|subsubsection{}|, which is level three (3). The depth to which the Table of Contents is formatted is set within \file{MastersDoctoralThesis.cls}. If you need this changed, you can do it in \file{main.tex}.
+The Table of Contents should only list the sections to three (3) levels.
+A \verb|chapter{}| is level zero (0). A \verb|\section{}| is level one (1) and so a \verb|\subsection{}| is level two (2). In your thesis it is likely that you will even use a \verb|subsubsection{}|, which is level three (3).
+The depth to which the Table of Contents is formatted is set within \file{style.cls}.  
+If you need this changed, you can do it in \file{main.tex}.
+
+If you want a chapter, section, or subsection to be skipped from the Table of Contents, you can append an asterisk, like so: \verb|\chapter*{}|, \verb|\section*{}|, and \verb|\subsection*{}|.
 
 %----------------------------------------------------------------------------------------
 
 \section{Source Code Listings}
-You can add source code snippets, like on \Cref{lst:c}, \Cref{lst:py}, and \Cref{lst:sh}.
+You can add source code snippets, like on \Cref{lst:c}, \Cref{lst:py}, and \Cref{lst:sh}, using the \verb|\begin{listing}[...]| environment.
 The documentation for this package is at \url{https://mirror.physik.tu-berlin.de/pub/CTAN/macros/latex/contrib/listings/listings.pdf}.
 
 \begin{lstlisting}[language=C, caption={C code snippet}, label=lst:c]
@@ -324,22 +332,23 @@ echo 'finished'
 exit 0
 \end{lstlisting}
 
+%----------------------------------------------------------------------------------------
+
 \section{Acronyms}
 % use \ac{...} for singular, and \acp{...} for plural
-You can use acronyms like this: The \ac{CPU} is something very important. 
-Generally, a computer does not have multiple \acp{CPU} (plural form).
-If you want, you can restate the acronym as if it were mentioned for the first time, like so: \acf{CPU}.
+You can use acronyms like this: The \ac{CPU} is something very important (with \verb|\ac{}|). 
+Generally, a computer does not have multiple \acp{CPU} (with \verb|\acp{}| for the plural form).
+If you want, you can restate the acronym as if it were mentioned for the first time, like so: \acf{CPU} (with \verb|\acf{}|).
 
-The documentation for this package is here: \url{https://mirror.funkfreundelandshut.de/latex/macros/latex/contrib/acronym/acronym.pdf}.
+The documentation for this package includes more examples and desribes all usage patterns.
+You can find it here: \url{https://mirror.funkfreundelandshut.de/latex/macros/latex/contrib/acronym/acronym.pdf}.
+
+%----------------------------------------------------------------------------------------
 
 \section{In Closing}
+You have reached the end of this mini-guide. 
 
-You have reached the end of this mini-guide. You can now rename or overwrite this pdf file and begin writing your own \file{Chapter1.tex} and the rest of your thesis. The easy work of setting up the structure and framework has been taken care of for you. It's now your job to fill it out!
+The easy work of setting up the structure and framework has been taken care of for you. 
+It's now your job to fill it out!
 
 Good luck and have lots of fun!
-
-\begin{flushright}
-Guide written by ---\\
-Sunil Patel: \href{http://www.sunilpatel.co.uk}{www.sunilpatel.co.uk}\\
-Vel: \href{http://www.LaTeXTemplates.com}{LaTeXTemplates.com}
-\end{flushright}
