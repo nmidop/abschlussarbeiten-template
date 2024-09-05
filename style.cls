@@ -295,7 +295,7 @@
 	\clearpairofpagestyles%
 	\automark[chapter]{chapter}
 	\ihead{\headmark}% Inner header
-	\ohead[\pagemark]{\pagemark}% Outer header
+    \ofoot[\pagemark]{\pagemark}
 }
 \ifoot{}% Inner footer
 \ofoot{}% Outer footer
@@ -304,7 +304,7 @@
 	\automark*[section]{}%
 }
 \providepairofpagestyles[thesisSimple]{review}{%
-	\ofoot[\shorttitle/\authorname]{\shorttitle/\authorname}
+	\ohead[\shorttitle/\authorname]{\shorttitle/\authorname}
 	\ifoot[\today]{\today}
 }
 \pagestyle{thesis}
