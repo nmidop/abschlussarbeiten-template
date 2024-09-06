@@ -1,33 +1,10 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Masters/Doctoral Thesis 
-% Class File
-% Version 1.6 (27/8/17)
-%
-% This class was downloaded from:
-% http://www.LaTeXTemplates.com
-%
-% Authors:
-% Vel (vel@latextemplates.com)
-% Johannes Böttcher
-%
-% Notes:
-% 1) This class file defines the structure and layout of the template file (main.tex).
-% 2) It has been written in such a way that under most circumstances you should not need
-% to edit it; updating it to a newer version will be harder. If you do make changes, please change the name of
-% the file and add comments to make your changes more visible.
-%
-% Class license:
-% LPPL v1.3c (http://www.latex-project.org/lppl)
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %----------------------------------------------------------------------------------------
 %	CLASS DEFINITION AND PARAMETERS
 %----------------------------------------------------------------------------------------
 
 \NeedsTeXFormat{LaTeX2e}[1996/12/01]
-\newcommand{\classname}{MastersDoctoralThesis}
-\ProvidesClass{\classname}[2017/08/27 v1.6 LaTeXTemplates.com]
+\newcommand{\classname}{UniBwMThesis}
+\ProvidesClass{\classname}[2024/09/01 v1.0 ucsrl.de]
 \providecommand{\baseclass}{book}
 \RequirePackage{etoolbox}
 \RequirePackage{xparse}
@@ -36,13 +13,10 @@
 \newbool{listtoc}
 \newbool{toctoc}
 \newbool{parskip}
-\newbool{hyperrefsupport}
-\booltrue{hyperrefsupport}
 \newbool{headsepline}
 \newbool{consistentlayout}
 \newbool{bachelor}
 
-\DeclareOption{nohyperref}{\boolfalse{hyperrefsupport}}
 \DeclareOption{nolistspacing}{\booltrue{nolistspace}}
 \DeclareOption{liststotoc}{\booltrue{listtoc}}
 \DeclareOption{chapterinoneline}{\booltrue{chapteroneline}}
@@ -135,6 +109,27 @@
 
 \ifbool{parskip}{\RequirePackage{parskip}} % If the parskip option is passed to the class, require the parskip package 
 
+\RequirePackage{listings} % Required for source code listings
+\lstset{%
+    basicstyle=\footnotesize\ttfamily,
+    numbers=left,
+    numberstyle=\tiny, 
+    % stepnumber=2, 
+    numbersep=5pt,
+    breaklines=true,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{red!35!brown},
+    frame=single,
+    framesep=\fboxsep,
+    framerule=\fboxrule,
+    rulecolor=\color{black},
+    xleftmargin=2em,
+    xrightmargin=\dimexpr\fboxsep+\fboxrule,
+    framexleftmargin=1.5em,
+    captionpos=b
+}
+\renewcommand{\lstlistlistingname}{List of Code Examples}%
 
 \ifbool{listtoc}{% If the liststotoc option has been passed to the class, add the lists to the table of contents
 	\patchcmd{\listoftables}{\@starttoc{lot}}{%
@@ -143,6 +138,12 @@
 	\patchcmd{\listoffigures}{\@starttoc{lof}}{%
 		\addchaptertocentry{\listfigurename}\@starttoc{lof}%
 	}{}{}%
+    \newcommand{\listoflistings}{%
+        \lstlistoflistings
+        \addchaptertocentry{\lstlistlistingname}
+    }%
+}{%
+    \newcommand{\listoflistings}{\lstlistoflistings}%
 }
 
 \ifbool{toctoc}{% If the toctotoc options has been passed to the class, add the table of contents to the table of contents
@@ -157,6 +158,8 @@
 \patchcmd{\listoffigures}{\MakeUppercase}{\MakeMarkcase}{}{}
 \patchcmd{\listoftables}{\MakeUppercase}{\MakeMarkcase}{}{}
 \patchcmd{\listoftables}{\MakeUppercase}{\MakeMarkcase}{}{}
+\patchcmd{\lstlistoflistings}{\MakeUppercase}{\MakeMarkcase}{}{}
+\patchcmd{\lstlistoflistings}{\MakeUppercase}{\MakeMarkcase}{}{}
 
 % If the option `nolistspacing' is given, the spacing in the different lists is reduced to single spacing. This option is only useful, if the spacing of the document has been changed to onehalfspacing or doublespacing.
 \ifbool{nolistspace}{
@@ -205,6 +208,10 @@
 \RequirePackage{caption} % Required for customising the captions
 \captionsetup{format=plain, font=small, labelfont=bf}
 
+\RequirePackage{xcolor} % For coloring, e.g., in source code listings
+
+\RequirePackage{acronym} % For acronyms & abbreviations
+
 %----------------------------------------------------------------------------------------
 %	DEFINE CUSTOM THESIS INFORMATION COMMANDS
 %----------------------------------------------------------------------------------------
@@ -222,10 +229,6 @@
 \NewDocumentCommand{\department}{m}{\newcommand{\deptname}{#1}}
 \NewDocumentCommand{\handindate}{m}{\newcommand{\hdate}{#1}}
 \NewDocumentCommand{\matriculationnumber}{m}{\newcommand{\matnumber}{#1}}
-
-\newcommand{\acrolisting}{List of Acronyms}
-\providecaptionname{english,british,american}{\acrolisting}{List of Acronyms}
-\providecaptionname{ngerman,german,austrian,naustrian}{\acrolisting}{Abk\"urzungsverzeichnis}
 
 \ifbool{bachelor}{%
     \newcommand{\ttype}{Bachelor Thesis}
@@ -348,77 +351,6 @@ KOMA-script documentation for details.}]{fancyhdr}
 }
 
 %----------------------------------------------------------------------------------------
-%	ABSTRACT PAGE DESIGN
-%----------------------------------------------------------------------------------------
-
-\DeclareDocumentCommand{\abstractauthorfont}{}{}
-\DeclareDocumentCommand{\abstracttitlefont}{}{}
-\newcommand{\byname}{by}
-\newcommand{\abstractname}{Abstract}
-\providecaptionname{german,ngerman,austrian,naustrian}{\byname}{von}
-\providecaptionname{american,australian,british,canadian,english,newzealand,UKenglish,USenglish}{\byname}{by}
-\ifbool{consistentlayout}{
-	\DeclareDocumentEnvironment{abstract}{ O{} }{%
-		\addchap*{\abstractname}%
-		{\chapteralign\normalsize\abstractauthorfont \authorname \par}% Author name
-		\vspace{\baselineskip}
-		{\chapteralign\parbox{.7\linewidth}{\chapteralign\normalsize\itshape\abstracttitlefont\@title}\par}% Thesis title
-		\bigskip\noindent\ignorespaces
-	}%
-	{}%end alt-abstract
-}{%
-	\DeclareDocumentEnvironment{abstract}{ O{\null\vfill} }{
-		\checktoopen
-		\tttypeout{\abstractname}
-		#1%added to be able to have abstract more than one page long
-		\thispagestyle{plain}
-		\begin{center}
-			{\normalsize \MakeUppercase{\univname} \par}% University name in capitals
-			\bigskip
-			{\huge\textit{\abstractname} \par}
-			\bigskip
-			{\normalsize \facname \par}% Faculty name
-			{\normalsize \deptname \par}% Department name
-			\bigskip
-			{\normalsize \degreename\par}% Degree name
-			\bigskip
-			{\normalsize\bfseries \@title \par}% Thesis title
-			\medskip
-			{\normalsize \byname{} \authorname \par}% Author name
-			\bigskip
-		\end{center}
-	}
-	{
-		\vfill\null
-	}
-}
-
-\DeclareDocumentEnvironment{extraAbstract}{ O{\null\vfill} }{
-	\checktoopen
-	\tttypeout{\abstractname}
-	#1%added to be able to have abstract more than one page long
-	\thispagestyle{empty}
-	\begin{center}
-		{\normalsize \MakeUppercase{\univname} \par}% University name in capitals
-		\bigskip
-		{\huge\textit{\abstractname} \par}
-		\bigskip
-		{\normalsize \facname \par}% Faculty name
-		{\normalsize \deptname \par}% Department name
-		\bigskip
-		{\normalsize \degreename\par}% Degree name
-		\bigskip
-		{\normalsize\bfseries \@title \par}% Thesis title
-		\medskip
-		{\normalsize \byname{} \authorname \par}% Author name
-		\bigskip
-	\end{center}
-}
-{
-	\vfill\null
-}
-
-%----------------------------------------------------------------------------------------
 %	ACKNOWLEDGEMENTS PAGE DESIGN
 %----------------------------------------------------------------------------------------
 
@@ -449,42 +381,12 @@ KOMA-script documentation for details.}]{fancyhdr}
 %----------------------------------------------------------------------------------------
 %	DECLARATION PAGE DESIGN
 %----------------------------------------------------------------------------------------
-
-\newcommand{\authorshipname}{Declaration of Authorship}
-\providecaptionname{american,australian,british,canadian,english,newzealand,UKenglish,USenglish}{\authorshipname}{Declaration of Authorship} % Declaration of Authorship text for English countries
-\providecaptionname{german,ngerman,austrian,naustrian}{\authorshipname}{Eidesstattliche Erkl\"arung} % Declaration of Authorship text for Germanic countries
-
 \DeclareDocumentEnvironment{declaration}{}{
     \checktoopen
-    \tttypeout{\authorshipname}
     \thispagestyle{empty}
     \null\vfil
     % {\noindent\huge\bfseries\authorshipname\par\vspace{10pt}}
 }{}
-
-%----------------------------------------------------------------------------------------
-%	DEDICATION PAGE DESIGN
-%----------------------------------------------------------------------------------------
-
-\ifbool{consistentlayout}{
-	\DeclareDocumentCommand{\dedicatory}{
-		m O{\vspace*{.7\textheight} }  }{
-			\checktoopen\tttypeout{Dedicatory}
-			\markboth{}{}
-			#2
-			{\hfill\parbox{.4\textwidth}{\flushright#1\par}}
-		}
-}{
-	\newcommand\dedicatory[1]{
-		\checktoopen
-		\tttypeout{Dedicatory}
-		\null\vfil
-		\thispagestyle{plain}
-		\begin{center}{\Large\slshape #1}\end{center}
-		\vfil\null
-	}
-}
-
 
 %----------------------------------------------------------------------------------------
 %	PHYSICAL CONSTANTS PAGE DESIGN
@@ -524,26 +426,23 @@ KOMA-script documentation for details.}]{fancyhdr}
 
 %----------------------------------------------------------------------------------------
 
-\ifbool{hyperrefsupport}{% If the nohyperref class option has not been specified
 \AtEndPreamble{\RequirePackage{hyperref}
-\hypersetup{pdfpagemode={UseOutlines},
-bookmarksopen=true,
-bookmarksopenlevel=0,
-hypertexnames=false,
-colorlinks=true,% Set to false to disable coloring links
-citecolor=magenta,% The color of citations
-linkcolor=red,% The color of references to document elements (sections, figures, etc)
-urlcolor=mdtRed,% The color of hyperlinks (URLs)
-pdfstartview={FitV},
-unicode,
-breaklinks=true,
-}
+    \hypersetup{pdfpagemode={UseOutlines},
+        bookmarksopen=true,
+        bookmarksopenlevel=0,
+        hypertexnames=false,
+        colorlinks=true,% Set to false to disable coloring links
+        citecolor=magenta,% The color of citations
+        linkcolor=red,% The color of references to document elements (sections, figures, etc)
+        urlcolor=mdtRed,% The color of hyperlinks (URLs)
+        pdfstartview={FitV},
+        unicode,
+        breaklinks=true,
+    }
 
-\pdfstringdefDisableCommands{% If there is an explicit linebreak in a section heading (or anything printed to the pdf-bookmarks), it is replaced by a space
-	\let\\\space%
-}
-	}
-}{%nothing
+    \pdfstringdefDisableCommands{% If there is an explicit linebreak in a section heading (or anything printed to the pdf-bookmarks), it is replaced by a space
+        \let\\\space%
+    }
 }
 
 %----------------------------------------------------------------------------------------

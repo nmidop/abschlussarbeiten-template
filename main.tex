@@ -1,23 +1,3 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Masters/Doctoral Thesis 
-% LaTeX Template
-% Version 2.5 (27/8/17)
-%
-% This template was downloaded from:
-% http://www.LaTeXTemplates.com
-%
-% Version 2.x major modifications by:
-% Vel (vel@latextemplates.com)
-%
-% This template is based on a template by:
-% Steve Gunn (http://users.ecs.soton.ac.uk/srg/softwaretools/document/templates/)
-% Sunil Patel (http://www.sunilpatel.co.uk/thesis-template/)
-%
-% Template license:
-% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \include{settings}
 
 \begin{document}
@@ -35,14 +15,6 @@
 % \include{acknowledgements} % if you want to thank somebody, uncomment the acknowledgements
 
 \tableofcontents % Prints the main table of contents
-
-\listoffigures % Prints the list of figures
-
-\listoftables % Prints the list of tables
-
-\lstlistoflistings
-
-\include{acronyms}
 
 \mainmatter % Begin numeric (1,2,3...) page numbering
 
@@ -65,6 +37,12 @@
 
 % bibliography
 \printbibliography[heading=bibintoc]
+
+% index with figures, tables, source code snippets & abbrevations
+\listoffigures % Prints the list of figures
+\listoftables % Prints the list of tables
+\listoflistings % Prints the list of source code snippets
+\include{acronyms} % Prints the list of all acronyms
 
 % declaration of authorship
 \include{declaration}

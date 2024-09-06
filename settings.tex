@@ -5,13 +5,12 @@ english, % ngerman for German
 singlespacing, % Single line spacing, alternatives: onehalfspacing or doublespacing
 %draft, % Uncomment to enable draft mode (no pictures, no links, overfull hboxes indicated)
 %nolistspacing, % If the document is onehalfspacing or doublespacing, uncomment this to set spacing in lists to single
-%liststotoc, % Uncomment to add the list of figures/tables/etc to the table of contents TODO: drop this, always add those? needs to work with acronyhms too
-%toctotoc, % Uncomment to add the main table of contents to the table of contents
-%parskip, % Uncomment to add space between paragraphs
-%nohyperref, % Uncomment to not load the hyperref package
-headsepline, % Uncomment to get a line under the header
+liststotoc, % Comment to remove the list of figures/tables/etc from the table of contents
+toctotoc, % Comment to remove the main table of contents from the table of contents
+%parskip, % Uncomment to add empty space between paragraphs instead of identation. Keep in mind this is wasteful when printed
+headsepline, % Comment to remove the line under the header
 %chapterinoneline, % Uncomment to place the chapter title next to the number on one line
-consistentlayout, % Uncomment to change the layout of the declaration, abstract and acknowledgements pages to match the default layout
+consistentlayout, % Comment to change the layout of the declaration, abstract and acknowledgements pages to be different than the default layout
 bachelor, % Comment-out if you are writing a Master Thesis
 ]{style} % The class file specifying the document structure
 
@@ -24,31 +23,6 @@ bachelor, % Comment-out if you are writing a Master Thesis
 \addbibresource{lit.bib} % The filename of the bibliography
 
 \usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
-
-\usepackage{acronym}
-
-\usepackage{listings} % Required for source code listings
-\usepackage{xcolor} % For coloring, e.g., in source code listings
-
-\lstset{%
-    basicstyle=\footnotesize\ttfamily,
-    numbers=left,
-    numberstyle=\tiny, 
-    % stepnumber=2, 
-    numbersep=5pt,
-    breaklines=true,
-    keywordstyle=\color{blue},
-    commentstyle=\color{gray},
-    stringstyle=\color{red!35!brown},
-    frame=single,
-    framesep=\fboxsep,
-    framerule=\fboxrule,
-    rulecolor=\color{black},
-    xleftmargin=2em,
-    xrightmargin=\dimexpr\fboxsep+\fboxrule,
-    framexleftmargin=1.5em,
-    captionpos=b
-}
 
 \usepackage{hyperref}
 \usepackage{varioref}
