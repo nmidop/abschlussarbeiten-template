@@ -341,10 +341,9 @@ KOMA-script documentation for details.}]{fancyhdr}
 \NewDocumentEnvironment{abbreviations}{ m }{%
 	\ifbool{nolistspace}{\begingroup\singlespacing}{}
 	\ifbool{listtoc}{\addchap{\abbrevname}}{\addchap*{\abbrevname}}
-	\begin{longtable}{#1}
+    \thispagestyle{plain}
+    #1
 	}{%
-	\end{longtable}
-	\addtocounter{table}{-1}% Don't count this table as one of the document tables
 	\ifbool{nolistspace}{\endgroup}{}
 }
 
