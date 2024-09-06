@@ -186,8 +186,6 @@ Tables are an important way of displaying your results, below is an example tabl
 {\small
 \begin{verbatim}
 \begin{table}
-\caption{The effects of treatments X and Y on the four groups studied.}
-\label{tab:treatments}
 \centering
 \begin{tabular}{l l l}
 \toprule
@@ -200,12 +198,12 @@ Tables are an important way of displaying your results, below is an example tabl
 \bottomrule\\
 \end{tabular}
 \end{table}
+\caption{The effects of treatments X and Y on the four groups studied.}
+\label{tab:treatments}
 \end{verbatim}
 }
 
 \begin{table}
-\caption{The effects of treatments X and Y on the four groups studied.}
-\label{tab:treatments}
 \centering
 \begin{tabular}{l l l}
 \toprule
@@ -217,6 +215,8 @@ Tables are an important way of displaying your results, below is an example tabl
 4 & 0.68 & 0.3\\
 \bottomrule\\
 \end{tabular}
+\caption{The effects of treatments X and Y on the four groups studied.}
+\label{tab:treatments}
 \end{table}
 
 You can reference tables with \verb|\ref{<label>}| where the label is defined within the table environment.
