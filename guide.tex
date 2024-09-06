@@ -299,7 +299,7 @@ If you want a chapter, section, or subsection to be skipped from the Table of Co
 %----------------------------------------------------------------------------------------
 
 \section{Source Code Listings}
-You can add source code snippets, like on \Cref{lst:c}, \Cref{lst:py}, and \Cref{lst:sh}, using the \verb|\begin{listing}[...]| environment.
+You can add source code snippets, like on \Cref{lst:c}, \Cref{lst:py}, and \Vref{lst:sh}, using the \verb|\begin{listing}[...]| environment.
 The documentation for this package is at \url{https://mirror.physik.tu-berlin.de/pub/CTAN/macros/latex/contrib/listings/listings.pdf}.
 
 \begin{lstlisting}[language=C, caption={C code snippet}, label=lst:c]
@@ -340,6 +340,47 @@ If you want, you can restate the acronym as if it were mentioned for the first t
 
 The documentation for this package includes more examples and desribes all usage patterns.
 You can find it here: \url{https://mirror.funkfreundelandshut.de/latex/macros/latex/contrib/acronym/acronym.pdf}.
+
+%----------------------------------------------------------------------------------------
+
+\section{Lists and Enumerations}
+This is a classic enumeration with one entry per line, done with \verb|\begin{enumerate}|:
+\begin{enumerate}
+    \item First item;
+    \item Second item;
+    \item Third item.
+\end{enumerate}
+
+This is an inline enumeration with the \verb|\begin{enumerate*}| environment:
+\begin{enumerate*}
+    \item first item,
+    \item second item, and
+    \item third item.
+\end{enumerate*}
+
+This is a classic list with one entry per line via \verb|\begin{itemize}|:
+\begin{itemize}
+    \item First item;
+    \item Second item;
+    \item Third item.
+\end{itemize}
+
+This is an inline list of items using \verb|\begin{itemize*}|:
+\begin{itemize*}
+    \item First item;
+    \item Second item;
+    \item Third item.
+\end{itemize*}
+
+%----------------------------------------------------------------------------------------
+
+\section{Referencing}
+With this template you have three ways how to reference labeled entities (i.e., figures, tables, listings, etc.):
+\begin{enumerate}
+    \item \verb|\ref{}| prints only the entity's id: \ref{fig:Electron}
+    \item \verb|\Cref{}| automatically prints the entity's type followed by its id: \Cref{fig:Electron}
+    \item \verb|\Vref{}| automatically adds text to describe where the entity is located, so that the reader can find it more easily: \Vref{fig:Electron}.
+\end{enumerate}
 
 %----------------------------------------------------------------------------------------
 
