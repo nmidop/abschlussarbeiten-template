@@ -189,6 +189,7 @@
 %----------------------------------------------------------------------------------------
 
 \RequirePackage{babel} % Required for automatically changing names of document elements to languages besides english
+\RequirePackage{iflang} % To check which language has been chosen
 
 \RequirePackage{scrbase} % Required for handling language-dependent names of sections/document elements
 
@@ -241,6 +242,10 @@
     \providecaptionname{english,british,american}{\ttype}{Master Thesis}
     \providecaptionname{ngerman,german,austrian,naustrian}{\ttype}{Masterarbeit}
 }
+
+\providecaptionname{english,british,american}{\lstlistlistingname}{List of Code Examples}
+\providecaptionname{ngerman,german,austrian,naustrian}{\lstlistlistingname}{Codeverzeichnis}
+\providecaptionname{ngerman,german,austrian,naustrian}{\lstlistingname}{Auflistung}
 
 \newcommand{\checktoopen}{% New command to move content to the next page which prints to the next odd page if twosided mode is active  
 	\if@openright\cleardoublepage\else\clearpage\fi

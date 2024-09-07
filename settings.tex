@@ -24,12 +24,16 @@ bachelor, % Comment-out if you are writing a Master Thesis
 
 \usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
 
+\usepackage[inline]{enumitem} % For inlined enumerations and itemizations
+\setenumerate[1]{label={(\arabic*)}} % Change enumeration labels from 1. to (1)
+
 \usepackage{hyperref}
 \usepackage{varioref}
 \usepackage{cleveref} % For automatically referencing images, tables, listings, relative pages, etc...
-
-\usepackage[inline]{enumitem} % For inlined enumerations and itemizations
-\setenumerate[1]{label={(\arabic*)}} % Change enumeration labels from 1. to (1)
+\IfLanguageName{ngerman}{%
+        \crefname{listing}{\lstlistingname}{??}
+        \Crefname{listing}{\lstlistingname}{??}
+}{}
 
 % margins
 \geometry{
