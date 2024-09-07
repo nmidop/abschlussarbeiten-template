@@ -59,8 +59,10 @@ bachelor, % Comment-out if you are writing a Master Thesis
 \department{Fakult\"at f\"ur Informatik} % Your department's name, this is used in the title page, print it elsewhere with \deptname
 
 \AtBeginDocument{
-\hypersetup{pdftitle=\ttitle} % Set the PDF's title to your title
-\hypersetup{pdfauthor=\authorname} % Set the PDF's author to your name
-\hypersetup{allcolors=blue} % Color all links/references in blue
-\hypersetup{colorlinks=false} % Do not color the links in the printed PDF
+    \hypersetup{pdftitle=\ttitle} % Set the PDF's title to your title
+    \hypersetup{pdfauthor=\authorname} % Set the PDF's author to your name
+    \hypersetup{pdfsubject=\ttype} % Set the PDF's subject to the type of thesis
+    \hypersetup{pdfkeywords={}} % Clean the PDF's meta keywords
+    \hypersetup{allcolors=blue} % Color all links/references in blue
+    \hypersetup{colorlinks=false} % Do not color the links in the printed PDF
 }
