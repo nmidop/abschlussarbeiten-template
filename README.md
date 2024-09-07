@@ -6,10 +6,10 @@ the Bundeswehr Munich.
 [Download](https://github.com/ucsrl/abschlussarbeiten-template/archive/refs/heads/master.zip) the latest version as a zip archive.
 
 <p align="middle">
-  <img src="https://raw.githubusercontent.com/ucsrl/abschlussarbeiten-template/master/figures/shot1.png" width="100" />
-  <img src="https://raw.githubusercontent.com/ucsrl/abschlussarbeiten-template/master/figures/shot2.png" width="100" />
-  <img src="https://raw.githubusercontent.com/ucsrl/abschlussarbeiten-template/master/figures/shot3.png" width="100" />
-  <img src="https://raw.githubusercontent.com/ucsrl/abschlussarbeiten-template/master/figures/shot4.png" width="100" />
+  <img src="https://raw.githubusercontent.com/ucsrl/abschlussarbeiten-template/master/figures/shot1.png" width="150" />
+  <img src="https://raw.githubusercontent.com/ucsrl/abschlussarbeiten-template/master/figures/shot2.png" width="150" />
+  <img src="https://raw.githubusercontent.com/ucsrl/abschlussarbeiten-template/master/figures/shot3.png" width="150" />
+  <img src="https://raw.githubusercontent.com/ucsrl/abschlussarbeiten-template/master/figures/shot4.png" width="150" />
 </p>
 
 
