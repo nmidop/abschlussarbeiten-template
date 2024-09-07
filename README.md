@@ -20,6 +20,7 @@ the Bundeswehr Munich.
 - Out-of-the-box formatting for source code snippets;
 - Renders lists of figures, tables, source code examples, abbreviations,
   physical constants, and symbols;
+- Appendices;
 - Eigenständigkeitserklärung included;
 - Dual- or single-sided printing supported;
 - Available font sizes: 10, 11, or 12pt.
